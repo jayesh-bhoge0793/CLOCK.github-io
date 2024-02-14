@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #clock {
+
+            /* border: 10px solid gainsboro; */
+            height: 40vh;
+            width: 50vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+        }
+       
+        
+
+        #time {
+            /* border:1px solid red; */
+            display: flex;
+            font-size: 100px;
+            /* display: flex; */
+
+        }
+
+        #date {
+            /* border: 1px solid blue; */
+            display: flex;
+            font-size: 50px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="clock">
+        
+        <div id="time">
+            <div id="hrs"></div>:
+            <div id="min"></div>:
+            <div id="sec"></div>&nbsp;
+            <div id="wrap"></div>
+        </div>
+        <div id="date">
+            <div id="day"></div>&nbsp;
+            <div id="currentdate"></div>/
+            <div id="month"></div>/
+            <div id="year"></div>
+
+        </div>
+    </div>
+
+    <script>
+        setInterval(() => {
+            var mon = ["Jan", "Feb", "march", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            var d = new Date();
+            document.querySelector('#hrs').innerHTML = d.getHours();
+            document.querySelector('#min').innerHTML = d.getMinutes();
+            document.querySelector('#sec').innerHTML = d.getSeconds();
+            document.querySelector('#wrap').innerHTML = "PM";
+            document.querySelector('#day').innerHTML = days[d.getDay()];
+            document.querySelector('#currentdate').innerHTML = d.getDate();
+            document.querySelector('#month').innerHTML = mon[d.getMonth()];
+            document.querySelector('#year').innerHTML = d.getFullYear();
+
+        }, 1000);
+
+
+
+    </script>
+</body>
+
+</html>
